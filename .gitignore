@@ -1,0 +1,24 @@
+# Project-wide ignores
+venv/
+.venv/
+env/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build/Dist
+dist/
+build/
+node_modules/
+__pycache__/
