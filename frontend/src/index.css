@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: 139 92 246;
+    --accent-2: 99 102 241;
+  }
+  * { @apply border-white/5; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-[#0a0a0f] text-white font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1,h2,h3,h4,h5 { font-family: 'Space Grotesk', sans-serif; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #0f0f1a; }
+  ::-webkit-scrollbar-thumb { @apply bg-violet-600/40 rounded-full; }
+}
+
+@layer components {
+  /* Glass card */
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl;
+  }
+  .glass-sm {
+    @apply bg-white/[0.06] backdrop-blur-md border border-white/[0.1] rounded-xl;
+  }
+  .glass-hover {
+    @apply hover:bg-white/[0.07] hover:border-violet-500/30 transition-all duration-300;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-violet-600 to-indigo-600
+           hover:from-violet-500 hover:to-indigo-500
+           text-white font-semibold px-6 py-3 rounded-xl
+           shadow-lg shadow-violet-900/40
+           transition-all duration-300 hover:scale-[1.02] hover:shadow-violet-700/50
+           active:scale-[0.98] flex items-center gap-2;
+  }
+  .btn-outline {
+    @apply border border-white/20 text-white/80 hover:text-white
+           hover:border-violet-500/60 hover:bg-white/5
+           font-medium px-6 py-3 rounded-xl
+           transition-all duration-300 flex items-center gap-2;
+  }
+  .btn-ghost {
+    @apply text-white/60 hover:text-white hover:bg-white/10
+           font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+  .btn-danger {
+    @apply bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300
+           border border-red-500/30 hover:border-red-400/50
+           font-medium p-2 rounded-lg transition-all duration-200;
+  }
+
+  /* Inputs */
+  .input-dark {
+    @apply w-full bg-white/[0.05] border border-white/10 rounded-xl px-4 py-3
+           text-white placeholder-white/30
+           focus:outline-none focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20
+           transition-all duration-300;
+  }
+
+  /* Badge */
+  .badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+  .badge-violet { @apply badge bg-violet-500/20 text-violet-300 border border-violet-500/30; }
+  .badge-green  { @apply badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30; }
+  .badge-red    { @apply badge bg-red-500/20 text-red-300 border border-red-500/30; }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-400 bg-clip-text text-transparent;
+  }
+
+  /* Section */
+  .section-container { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply bg-white/5 rounded-xl animate-pulse;
+  }
+
+  /* Glow effects */
+  .glow-violet { box-shadow: 0 0 40px rgba(139,92,246,0.15); }
+  .glow-sm     { box-shadow: 0 0 20px rgba(139,92,246,0.12); }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Animated gradient border */
+  .border-glow {
+    position: relative;
+  }
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(139,92,246,0.4), rgba(99,102,241,0.2), transparent);
+    z-index: -1;
+  }
+}
+
+/* Floating orbs background decoration */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 { width: 500px; height: 500px; background: #7c3aed; top: -10%; left: -10%; }
+.orb-2 { width: 400px; height: 400px; background: #4f46e5; bottom: 10%; right: -5%; }
+.orb-3 { width: 300px; height: 300px; background: #8b5cf6; top: 50%; left: 40%; }
+
+/* Chat message markdown-like formatting */
+.chat-content p { @apply mb-2; }
+.chat-content strong { @apply text-violet-300 font-semibold; }
+.chat-content ul { @apply list-disc list-inside space-y-1 my-2; }
