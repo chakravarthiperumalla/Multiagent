@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+email-validator
+python-jose[cryptography]
+passlib[pbkdf2]
+python-multipart
+langgraph
+langchain
+langchain-google-genai
+langchain-groq
+python-dotenv
+pytest
+httpx
